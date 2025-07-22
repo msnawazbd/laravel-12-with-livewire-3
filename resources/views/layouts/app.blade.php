@@ -35,13 +35,16 @@
                     <ul class="navbar-nav me-auto">
                         @if(auth()->check())
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Dashboard</a>
+                            <a class="nav-link active" aria-current="page" href="/home" wire:current="active fw-bold" wire:navigate>Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('counter') }}">Counter</a>
+                            <a class="nav-link" href="/counter" wire:current="active fw-bold" wire:navigate>Counter</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('product') }}">Product</a>
+                            <a class="nav-link" href="/product" wire:current="active fw-bold" wire:navigate>Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/photo-upload" wire:current="active fw-bold" wire:navigate>Photo Upload</a>
                         </li>
                         @endif
                     </ul>
