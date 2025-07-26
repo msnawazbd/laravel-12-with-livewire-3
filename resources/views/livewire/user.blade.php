@@ -16,6 +16,26 @@
             @enderror
         </div>
 
+
+        <div class="form-group mb-4">
+            <div class="form-check">
+                <input class="form-check-input" wire:model.live="is_admin" type="checkbox" id="is_admin" value="is_admin">
+                <label class="form-check-label" for="is_admin">
+                    Is Admin ?
+                </label>
+            </div>
+        </div>
+
+        @if($is_admin)
+        <div class="form-group mb-4" wire:transition.origin.right.duration.500ms>
+            <label for="reason">Reason</label>
+            <input type="text" id="reason" class="form-control" wire:model="reason">
+            @error('reason')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+        @endif
+
         <button class="btn btn-success" type="submit" wire:loading.attr="disabled" wire:dirty.attr.remove="disabled" disabled>Save</button>
 
         <div wire:dirty>

@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class User extends Component
 {
-    public $name, $email;
+    public $name, $email, $is_admin, $reason;
 
     public function store()
     {
