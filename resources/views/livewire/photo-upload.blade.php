@@ -47,6 +47,10 @@
                     </td>
                     <td>
                         <button class="btn btn-success" wire:click="download('{{ $photo->filepath }}')">Download</button>
+                        <button
+                            wire:click="destroy('{{ $photo->id }}')"
+                            wire:confirm="Are you sure want to delete this photo?"
+                            class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             @endforeach

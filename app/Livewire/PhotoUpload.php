@@ -42,6 +42,16 @@ class PhotoUpload extends Component
         return response()->download(storage_path('app/public/' . $filepath));
     }
 
+    public function destroy($id)
+    {
+        $photo = Photo::findOrFail($id);
+        $photo->delete();
+
+        session()->flash('success', 'Photo deleted successfully!');
+
+        return redirect()->route('photoUpload');
+    }
+
     public function render()
     {
         return view('livewire.photo-upload', [

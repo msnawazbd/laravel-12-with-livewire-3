@@ -40,4 +40,9 @@ class HomeController extends Controller
     {
         return view('photo_upload');
     }
+
+    public function user()
+    {
+        return view('user');
+    }
 }

@@ -46,6 +46,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/photo-upload" wire:current="active fw-bold" wire:navigate>Photo Upload</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user" wire:current="active fw-bold" wire:navigate>User</a>
+                        </li>
                         @endif
                     </ul>
 
