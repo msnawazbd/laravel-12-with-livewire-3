@@ -36,6 +36,11 @@ class HomeController extends Controller
         return view('product');
     }
 
+    public function products()
+    {
+        return view('products');
+    }
+
     public function photo_upload()
     {
         return view('photo_upload');

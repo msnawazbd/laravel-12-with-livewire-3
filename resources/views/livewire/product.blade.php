@@ -1,13 +1,20 @@
-<div>
+<div wire:init="loadCategories">
+
+    @session('success')
+    <div class="alert alert-success">
+        {{ $value }}
+    </div>
+    @endsession
+
     <form wire:submit="store">
-        <div class="form-group">
+        <div class="form-group mb-4">
             <label for="category">Category</label>
             <select id="category" class="form-control" wire:model="category">
-                <option value="" selected disabled>Select Category</option>
-                    <option value="1">Category 1</option>
-                    <option value="2">Category 2</option>
-                    <option value="3">Category 3</option>
-                    <option value="4">Category 4</option>
+                <option value="" selected>Select Category</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+
             </select>
             @error('category')
             <p class="text-danger">{{ $message }}</p>
@@ -32,13 +39,13 @@
         <div class="form-group my-3">
             <label for="status">Status</label>
             <div class="form-check">
-                <input class="form-check-input" type="radio" value="active" name="radioDefault" id="active" wire:model="status">
+                <input class="form-check-input" type="radio" value="1" name="radioDefault" id="active" wire:model="status">
                 <label class="form-check-label" for="active">
                     Active
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" value="inactive" name="radioDefault" id="inactive" wire:model="status">
+                <input class="form-check-input" type="radio" value="0" name="radioDefault" id="inactive" wire:model="status">
                 <label class="form-check-label" for="inactive">
                     Inactive
                 </label>

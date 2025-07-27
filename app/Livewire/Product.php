@@ -2,15 +2,22 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use Livewire\Component;
 
 class Product extends Component
 {
     public $name, $price, $description, $category, $status, $vendors = [];
+    public $categories = [];
+
+    public function loadCategories()
+    {
+        $this->categories = Category::all();
+    }
 
     public function store()
     {
-        sleep(3); // Simulate a delay for demonstration purposes
+        // sleep(3); // Simulate a delay for demonstration purposes
         $this->validate([
             'name' => 'required|string|max:255',
             'category' => 'required|numeric',
@@ -19,6 +26,23 @@ class Product extends Component
             'status' => 'required|string',
             'vendors' => 'required|array|min:1',
         ]);
+
+        $product = \App\Models\Product::query()->create([
+            'name' => $this->name,
+            'category_id' => $this->category,
+            'price' => $this->price,
+            'description' => $this->description,
+            'is_active' => $this->status,
+            'vendors' => $this->vendors,
+            'created_by' => auth()->id(),
+        ]);
+
+        if ($product->id) {
+            session()->flash('success', 'Product created successfully!');
+            $this->resetForm();
+        } else {
+            session()->flash('error', 'Failed to create product.');
+        }
     }
 
     public function resetForm()

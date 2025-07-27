@@ -44,6 +44,9 @@
                             <a class="nav-link" href="/product" wire:current="active fw-bold" wire:navigate>Product</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/products" wire:current="active fw-bold" wire:navigate>Products</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/photo-upload" wire:current="active fw-bold" wire:navigate>Photo Upload</a>
                         </li>
                         <li class="nav-item">

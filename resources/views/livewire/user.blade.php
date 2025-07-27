@@ -16,7 +16,6 @@
             @enderror
         </div>
 
-
         <div class="form-group mb-4">
             <div class="form-check">
                 <input class="form-check-input" wire:model.live="is_admin" type="checkbox" id="is_admin" value="is_admin">
