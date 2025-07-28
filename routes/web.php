@@ -15,3 +15,4 @@ Route::get('/product', [HomeController::class, 'product'])->name('product');
 Route::get('/products', [HomeController::class, 'products'])->name('products');
 Route::get('/photo-upload', [HomeController::class, 'photo_upload'])->name('photoUpload');
 Route::get('/user', [HomeController::class, 'user'])->name('user');
+Route::get('/users', [HomeController::class, 'users'])->name('users');

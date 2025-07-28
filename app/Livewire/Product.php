@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Product extends Component
 {
-    public $name, $price, $description, $category, $status, $vendors = [];
+    public $name, $price, $description, $category, $status, $vendors = [], $published_date;
     public $categories = [];
 
     public function loadCategories()

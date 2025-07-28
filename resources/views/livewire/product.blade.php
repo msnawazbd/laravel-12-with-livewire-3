@@ -9,7 +9,7 @@
     <form wire:submit="store">
         <div class="form-group mb-4">
             <label for="category">Category</label>
-            <select id="category" class="form-control" wire:model="category">
+            <select id="category" class="form-control select2-single" wire:model="category">
                 <option value="" selected>Select Category</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -32,6 +32,14 @@
             <label for="price">Price</label>
             <input type="number" id="price" class="form-control" wire:model="price">
             @error('price')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="published_date">Published Date</label>
+            <input type="text" id="published_date" class="form-control" wire:model="published_date">
+            @error('published_date')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -91,9 +99,47 @@
         <button class="btn btn-danger" wire:click.prevent="resetForm">Reset</button>
         <button class="btn btn-success" type="submit" wire:loading.attr="disabled">Save</button>
 
+        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on left">
+            Tooltip on left
+        </button>
+
         <div wire:loading>
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" alt="Loading..." width="30px">Product Saving..
         </div>
 
     </form>
 </div>
+
+@script
+
+<script>
+    {{-- Select 2 --}}
+    document.addEventListener("livewire:initialized", function () {
+        console.log('select2')
+
+        function loadJavaScript() {
+            $('.select2-single').select2({
+                placeholder: "Select Category",
+                allowClear: true
+            }).on('change', function () {
+                $wire.set("category", $(this).val());
+            });
+        }
+
+        loadJavaScript();
+
+        Livewire.hook("morphed", () => {
+            loadJavaScript();
+        });
+    });
+
+    {{-- Datepicker --}}
+    $('#published_date').datepicker({
+        format: 'dd-mm-yyyy'
+    }).on("changeDate", function (e) {
+        @this.
+        set('published_date', e.format(0, 'dd-mm-yyyy'));
+    });
+</script>
+
+@endscript
