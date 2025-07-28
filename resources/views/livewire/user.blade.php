@@ -1,5 +1,19 @@
-<div>
+<div wire:init="loadCategories">
     <form wire:submit="store">
+        <div class="form-group mb-4">
+            <label for="category">Category</label>
+            <select id="category" class="form-control select2-multiple" multiple="multiple" wire:model="category">
+                <option value="" selected>Select Category</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+
+            </select>
+            @error('category')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" class="form-control" wire:model="name" wire:dirty.class="is-invalid" wire:dirty.class.remove="is-valid">
@@ -43,3 +57,26 @@
 
     </form>
 </div>
+
+@script
+<script>
+    document.addEventListener("livewire:initialized", function () {
+        console.log('select2')
+
+        function loadJavaScript() {
+            $('.select2-multiple').select2({
+                placeholder: "Select Category",
+                allowClear: true
+            }).on('change', function () {
+                $wire.set("category", $(this).val());
+            });
+        }
+
+        loadJavaScript();
+
+        Livewire.hook("morphed", () => {
+            loadJavaScript();
+        });
+    });
+</script>
+@endscript

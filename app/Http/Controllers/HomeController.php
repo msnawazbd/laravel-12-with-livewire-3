@@ -55,4 +55,9 @@ class HomeController extends Controller
     {
         return view('users');
     }
+
+    public function address()
+    {
+        return view('address');
+    }
 }

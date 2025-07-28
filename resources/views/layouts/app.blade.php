@@ -77,6 +77,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/users" wire:current="active fw-bold" wire:navigate>Users</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/address" wire:current="active fw-bold" wire:navigate>Address</a>
+                        </li>
                     @endif
                 </ul>
 
