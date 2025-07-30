@@ -70,4 +70,14 @@ class HomeController extends Controller
     {
         return view('posts');
     }
+
+    public function review()
+    {
+        return view('review');
+    }
+
+    public function post()
+    {
+        return view('post');
+    }
 }

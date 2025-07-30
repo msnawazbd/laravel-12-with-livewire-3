@@ -101,7 +101,13 @@
                             <a class="nav-link" href="/invoice" wire:current="active fw-bold" wire:navigate>Invoice</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/post" wire:current="active fw-bold" wire:navigate>Create Post</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/posts" wire:current="active fw-bold" wire:navigate>Posts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/review" wire:current="active fw-bold" wire:navigate>Review</a>
                         </li>
                     @endif
                 </ul>

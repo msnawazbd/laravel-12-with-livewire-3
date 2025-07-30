@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class Posts extends Component
 {
@@ -15,9 +16,8 @@ class Posts extends Component
     }
 
     #[On('loadMorePosts')]
-    public function loadMorePosts()
+    public function loadMore()
     {
-        dd('ok');
         $lastPostId = $this->posts->last()->id;
         $newPosts = Post::query()
             ->where('id', '<', $lastPostId)

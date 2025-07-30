@@ -22,6 +22,8 @@
     window.onscroll = function() {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
             console.log('hi');
+            console.log(window.innerHeight + window.scrollY);
+            console.log(document.body.offsetHeight);
             Livewire.dispatch('loadMorePosts');
         }
     };
