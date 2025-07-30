@@ -80,6 +80,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/address" wire:current="active fw-bold" wire:navigate>Address</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/invoice" wire:current="active fw-bold" wire:navigate>Invoice</a>
+                        </li>
                     @endif
                 </ul>
 

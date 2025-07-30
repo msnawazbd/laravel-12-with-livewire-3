@@ -60,4 +60,9 @@ class HomeController extends Controller
     {
         return view('address');
     }
+
+    public function invoice()
+    {
+        return view('invoice');
+    }
 }
