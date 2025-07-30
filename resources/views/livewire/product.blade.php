@@ -138,8 +138,9 @@
         format: 'dd-mm-yyyy'
     }).on("changeDate", function (e) {
         @this.
-        set('published_date', e.format(0, 'dd-mm-yyyy');
+        set('published_date', e.format(0, 'dd-mm-yyyy'));
     });
+
 </script>
 
 @endscript

@@ -77,3 +77,12 @@
 
     </form>
 </div>
+
+@script
+<script>
+    // ADDED IN APP.BLADE.PHP
+    /*document.addEventListener("toast.success", function (event) {
+        toastr.success(event.detail.message);
+    });*/
+</script>
+@endscript

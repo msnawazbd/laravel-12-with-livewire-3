@@ -18,3 +18,4 @@ Route::get('/user', [HomeController::class, 'user'])->name('user');
 Route::get('/users', [HomeController::class, 'users'])->name('users');
 Route::get('/address', [HomeController::class, 'address'])->name('address');
 Route::get('/invoice', [HomeController::class, 'invoice'])->name('invoice');
+Route::get('/posts', [HomeController::class, 'posts'])->name('posts');

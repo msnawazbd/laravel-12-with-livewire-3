@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Photo;
+use App\Traits\HasToastNotifications;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -10,7 +11,7 @@ use Livewire\WithPagination;
 
 class PhotoUpload extends Component
 {
-    use WithFileUploads, WithPagination;
+    use WithFileUploads, WithPagination, HasToastNotifications;
     public $photo;
 
     #[Url] // http://127.0.0.1:8000/photo-upload?search=455351204
@@ -31,9 +32,13 @@ class PhotoUpload extends Component
             'filepath' => $filepath,
         ]);
 
-        session()->flash('success', 'Photo uploaded successfully!');
+        // Using the trait for toast notifications
+        $this->dispatchSuccessToast('Photo uploaded successfully!');
+        $this->photo = '';
 
-        return redirect()->route('photoUpload');
+        /*session()->flash('success', 'Photo uploaded successfully!');*/
+
+        // return redirect()->route('photoUpload');
     }
 
     public function download($filepath)
@@ -47,9 +52,11 @@ class PhotoUpload extends Component
         $photo = Photo::findOrFail($id);
         $photo->delete();
 
-        session()->flash('success', 'Photo deleted successfully!');
+        // session()->flash('success', 'Photo deleted successfully!');
 
-        return redirect()->route('photoUpload');
+        $this->dispatchWarningToast('Photo deleted successfully!');
+
+        // return redirect()->route('photoUpload');
     }
 
     public function render()
@@ -57,6 +64,7 @@ class PhotoUpload extends Component
         return view('livewire.photo-upload', [
             'photos' => Photo::query()
                 ->where('title', 'LIKE', '%' . $this->search . '%')
+                ->orderBy('created_at', 'desc')
                 ->paginate(2),
         ]);
     }

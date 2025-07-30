@@ -3,10 +3,12 @@
 namespace App\Livewire;
 
 use App\Models\Category;
+use App\Traits\HasSweetNotifications;
 use Livewire\Component;
 
 class Product extends Component
 {
+    use HasSweetNotifications;
     public $name, $price, $description, $category, $status, $vendors = [], $published_date;
     public $categories = [];
 
@@ -38,7 +40,17 @@ class Product extends Component
         ]);
 
         if ($product->id) {
-            session()->flash('success', 'Product created successfully!');
+            // session()->flash('success', 'Product created successfully!');
+            /*$this->dispatch('sweet.success',
+                title: 'Success', message: 'Product created successfully!', icon: 'success'
+            );*/
+
+            $this->dispatchSuccessSweet(
+                title: 'Success',
+                message: 'Product created successfully!',
+                icon: 'success'
+            );
+
             $this->resetForm();
         } else {
             session()->flash('error', 'Failed to create product.');

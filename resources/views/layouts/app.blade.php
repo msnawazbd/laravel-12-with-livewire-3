@@ -36,9 +36,26 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Select 2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+    <!-- Toastr Notification -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+            integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+          integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
+
+    <!-- Summernote Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote.min.js"
+            integrity="sha512-07bR+AJ2enmNU5RDrZkqMfVq06mQHgFxcmWN/hNSNY4E5SgYNOmTVqo/HCzrSxBhWU8mx3WB3ZJOixA9cRnCdA==" crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote-bs4.min.css"
+          integrity="sha512-rDHV59PgRefDUbMm2lSjvf0ZhXZy3wgROFyao0JxZPGho3oOuWejq/ELx0FOZJpgaE5QovVtRN65Y3rrb7JhdQ==" crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
 </head>
 <body>
 <div id="app">
@@ -82,6 +99,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/invoice" wire:current="active fw-bold" wire:navigate>Invoice</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/posts" wire:current="active fw-bold" wire:navigate>Posts</a>
                         </li>
                     @endif
                 </ul>
@@ -145,6 +165,29 @@
 
     document.addEventListener('livewire:initialized', function () {
         console.log('call initialized');
+    });
+</script>
+
+<!-- Initialize Select2 Globally -->
+<script>
+    document.addEventListener("toast.success", function (event) {
+        toastr.success(event.detail.message);
+    });
+
+    document.addEventListener("toast.warning", function (event) {
+        toastr.warning(event.detail.message);
+    });
+</script>
+
+<!-- Initialize Sweet Alert Globally -->
+<script>
+    document.addEventListener("sweet.success", function (event) {
+        Swal.fire({
+            title: event.detail.title,
+            text: event.detail.message,
+            icon: event.detail.icon,
+            confirmButtonText: 'OK'
+        });
     });
 </script>
 </body>

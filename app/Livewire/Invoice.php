@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Traits\HasToastNotifications;
 use Livewire\Component;
 
 class Invoice extends Component
 {
+    use HasToastNotifications;
     public $name;
 
     public $items = [
@@ -75,7 +77,12 @@ class Invoice extends Component
 
         $this->resetForm();
 
-        session()->flash('success', 'Invoice create successfully!');
+        // Using the trait for toast notifications
+        $this->dispatchSuccessToast('Invoice created successfully!');
+
+        // $this->dispatch('toast.success', message: 'Invoice created successfully!');
+
+        // session()->flash('success', 'Invoice create successfully!');
     }
 
     public function render()

@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class Address extends Component
 {
-    public $country_id, $city_id, $state_id;
+    public $country_id, $city_id, $state_id, $details;
     public $countries = [];
     public $cities = [];
     public $states = [];
@@ -40,11 +40,13 @@ class Address extends Component
             'country_id' => 'required',
             'state_id' => 'required',
             'city_id' => 'required',
+            'details' => 'required',
         ]);
         dd([
             'countries' => $this->country_id,
             'cities' => $this->city_id,
-            'states' => $this->state_id
+            'states' => $this->state_id,
+            'details' => $this->details,
         ]);
     }
     public function render()

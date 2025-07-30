@@ -40,6 +40,16 @@
             @enderror
         </div>
 
+        <div class="form-group mb-4">
+            <label for="details">Details</label>
+            <div wire:ignore>
+                <textarea class="form-control summernote" id="details" wire:model="details"></textarea>
+            </div>
+            @error('details')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+
 
         <button class="btn btn-success" type="submit">Save</button>
 
@@ -48,6 +58,16 @@
 
 @script
 <script>
+    $('.summernote').summernote({
+        height: 200,
+        placeholder: 'Enter details address here',
+        callbacks: {
+            onChange: function (contents) {
+                @this.set('details', contents);
+            }
+        }
+    });
+
     document.addEventListener("livewire:initialized", function () {
         console.log('select2')
 

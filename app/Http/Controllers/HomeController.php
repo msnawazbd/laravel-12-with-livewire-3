@@ -65,4 +65,9 @@ class HomeController extends Controller
     {
         return view('invoice');
     }
+
+    public function posts()
+    {
+        return view('posts');
+    }
 }
