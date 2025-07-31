@@ -17,7 +17,6 @@ class Posts extends Component
     #[On('loadMorePosts')]
     public function loadMorePosts()
     {
-        dd('ok');
         $lastPostId = $this->posts->last()->id;
         $newPosts = Post::query()
             ->where('id', '<', $lastPostId)
