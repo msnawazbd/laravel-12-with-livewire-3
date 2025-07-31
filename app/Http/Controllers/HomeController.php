@@ -107,6 +107,11 @@ class HomeController extends Controller
         return view('student');
     }
 
+    public function crud()
+    {
+        return view('crud');
+    }
+
     public function show($id)
     {
         return User::query()->findOrFail($id);

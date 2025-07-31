@@ -184,6 +184,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/student" wire:current="active fw-bold" wire:navigate>Student</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/crud" wire:current="active fw-bold" wire:navigate>CRUD</a>
+                        </li>
                     @endif
                 </ul>
 

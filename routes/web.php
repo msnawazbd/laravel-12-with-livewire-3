@@ -27,3 +27,4 @@ Route::get('/users/show/{id}', [HomeController::class, 'show'])->name('users.sho
 Route::get('/drag-and-drop', [HomeController::class, 'drag_and_drop'])->name('dragAndDrop');
 Route::get('/form-component', [HomeController::class, 'form_component'])->name('formComponent');
 Route::get('/student', [HomeController::class, 'student'])->name('student');
+Route::get('/crud', [HomeController::class, 'crud'])->name('crud');
