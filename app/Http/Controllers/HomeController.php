@@ -80,4 +80,9 @@ class HomeController extends Controller
     {
         return view('post');
     }
+
+    public function calendar()
+    {
+        return view('calendar');
+    }
 }

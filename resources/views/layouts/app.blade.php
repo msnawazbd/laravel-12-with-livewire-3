@@ -56,6 +56,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote-bs4.min.css"
           integrity="sha512-rDHV59PgRefDUbMm2lSjvf0ZhXZy3wgROFyao0JxZPGho3oOuWejq/ELx0FOZJpgaE5QovVtRN65Y3rrb7JhdQ==" crossorigin="anonymous"
           referrerpolicy="no-referrer"/>
+
+    <!-- FullCalendar -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js'></script>
+
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
 <div id="app">
@@ -108,6 +114,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/review" wire:current="active fw-bold" wire:navigate>Review</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/calendar" wire:current="active fw-bold" wire:navigate>Calendar</a>
                         </li>
                     @endif
                 </ul>
@@ -167,10 +176,6 @@
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
         })
-    });
-
-    document.addEventListener('livewire:initialized', function () {
-        console.log('call initialized');
     });
 </script>
 

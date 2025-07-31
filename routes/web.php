@@ -21,3 +21,4 @@ Route::get('/invoice', [HomeController::class, 'invoice'])->name('invoice');
 Route::get('/post', [HomeController::class, 'post'])->name('post');
 Route::get('/posts', [HomeController::class, 'posts'])->name('posts');
 Route::get('/review', [HomeController::class, 'review'])->name('review');
+Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
