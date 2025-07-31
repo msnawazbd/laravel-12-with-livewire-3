@@ -3,14 +3,22 @@
 namespace App\Livewire;
 
 use App\Traits\HasSweetNotifications;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Post extends Component
 {
     use HasSweetNotifications, WithFileUploads;
-    public $title, $content, $images = [];
+    public $title, $content, $images = [], $imagePreviews = [];
+
+    public function updatedImages()
+    {
+        $this->imagePreviews = [];
+
+        foreach ($this->images as $image) {
+            $this->imagePreviews [] = $image->temporaryUrl();
+        }
+    }
 
     public function store()
     {
@@ -27,6 +35,15 @@ class Post extends Component
         ]);
 
         if ($post->id) {
+
+            foreach ($this->images as $image) {
+                $path = $image->store("posts", "public");
+
+                $post->post_images()->create([
+                    'path' => $path
+                ]);
+            }
+
             $this->dispatchSuccessSweet(
                 title: 'Success',
                 message: 'Post created successfully!',
@@ -43,6 +60,8 @@ class Post extends Component
     {
         $this->title = '';
         $this->content = '';
+        $this->images = [];
+        $this->imagePreviews = [];
     }
 
     public function render()
