@@ -22,3 +22,7 @@ Route::get('/post', [HomeController::class, 'post'])->name('post');
 Route::get('/posts', [HomeController::class, 'posts'])->name('posts');
 Route::get('/review', [HomeController::class, 'review'])->name('review');
 Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
+Route::get('/users-table', [HomeController::class, 'users_table'])->name('usersTable');
+Route::get('/users/show/{id}', [HomeController::class, 'show'])->name('users.show');
+Route::get('/drag-and-drop', [HomeController::class, 'drag_and_drop'])->name('dragAndDrop');
+Route::get('/form-component', [HomeController::class, 'form_component'])->name('formComponent');

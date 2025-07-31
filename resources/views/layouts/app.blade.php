@@ -83,10 +83,7 @@
                             <a class="nav-link active" aria-current="page" href="/home" wire:current="active fw-bold" wire:navigate>Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/counter" wire:current="active fw-bold" wire:navigate>Counter</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/product" wire:current="active fw-bold" wire:navigate>Create Product</a>
+                            <a class="nav-link" href="/product" wire:current="active fw-bold" wire:navigate>Product</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/products" wire:current="active fw-bold" wire:navigate>Products</a>
@@ -95,10 +92,13 @@
                             <a class="nav-link" href="/photo-upload" wire:current="active fw-bold" wire:navigate>Photo Upload</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/user" wire:current="active fw-bold" wire:navigate>Create User</a>
+                            <a class="nav-link" href="/user" wire:current="active fw-bold" wire:navigate>User</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/users" wire:current="active fw-bold" wire:navigate>Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users-table" wire:current="active fw-bold" wire:navigate>DataTable</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/address" wire:current="active fw-bold" wire:navigate>Address</a>
@@ -107,7 +107,7 @@
                             <a class="nav-link" href="/invoice" wire:current="active fw-bold" wire:navigate>Invoice</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/post" wire:current="active fw-bold" wire:navigate>Create Post</a>
+                            <a class="nav-link" href="/post" wire:current="active fw-bold" wire:navigate>Post</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/posts" wire:current="active fw-bold" wire:navigate>Posts</a>
@@ -117,6 +117,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/calendar" wire:current="active fw-bold" wire:navigate>Calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/drag-and-drop" wire:current="active fw-bold" wire:navigate>Drag & Drop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/form-component" wire:current="active fw-bold" wire:navigate>Component</a>
                         </li>
                     @endif
                 </ul>

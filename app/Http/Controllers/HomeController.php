@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -56,6 +57,11 @@ class HomeController extends Controller
         return view('users');
     }
 
+    public function users_table()
+    {
+        return view('users-table');
+    }
+
     public function address()
     {
         return view('address');
@@ -84,5 +90,20 @@ class HomeController extends Controller
     public function calendar()
     {
         return view('calendar');
+    }
+
+    public function drag_and_drop()
+    {
+        return view('drag_and_drop');
+    }
+
+    public function form_component()
+    {
+        return view('form-component');
+    }
+
+    public function show($id)
+    {
+        return User::query()->findOrFail($id);
     }
 }

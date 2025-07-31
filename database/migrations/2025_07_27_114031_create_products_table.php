@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->boolean('is_active')->default(true);
             $table->json('vendors')->nullable();
+            $table->date('published_date')->nullable();
             $table->enum('status', ['AVAILABLE', 'ON SALE', 'OUT OF STOCK'])->default('AVAILABLE');
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();

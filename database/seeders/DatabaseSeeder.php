@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Post;
@@ -25,6 +26,21 @@ class DatabaseSeeder extends Seeder
         ]);*/
 
         Post::factory(100)->create();
+
+        Category::query()->insert([
+            [
+                'name' => 'Bangla',
+            ],
+            [
+                'name' => 'English',
+            ],
+            [
+                'name' => 'Math',
+            ],
+            [
+                'name' => 'Science',
+            ]
+        ]);
 
         Country::query()->insert([
             [
