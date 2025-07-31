@@ -102,6 +102,11 @@ class HomeController extends Controller
         return view('form-component');
     }
 
+    public function student()
+    {
+        return view('student');
+    }
+
     public function show($id)
     {
         return User::query()->findOrFail($id);

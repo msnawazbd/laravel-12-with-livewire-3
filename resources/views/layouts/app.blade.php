@@ -62,6 +62,63 @@
 
     <!-- Google Charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Step by Step Form Wizard -->
+    <style>
+        .stepwizard-step p {
+            margin-top: 0px;
+            color:#666;
+        }
+        .stepwizard-row {
+            display: table-row;
+        }
+        .stepwizard {
+            display: table;
+            width: 100%;
+            position: relative;
+        }
+        .stepwizard-step button[disabled] {
+            /*opacity: 1 !important;
+            filter: alpha(opacity=100) !important;*/
+        }
+        .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+            opacity:1 !important;
+            color:#bbb;
+        }
+        .stepwizard-row:before {
+            top: 14px;
+            bottom: 0;
+            position: absolute;
+            content:" ";
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            z-index: 0;
+        }
+        .stepwizard-step {
+            display: table-cell;
+            text-align: center;
+            position: relative;
+        }
+        .btn-circle {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            padding: 6px 0;
+            font-size: 12px;
+            line-height: 1.428571429;
+            border-radius: 15px;
+            border: 1px solid #a1a1a1;
+            background-color: white;
+        }
+        .btn-circle:hover {
+            background-color: #a1a1a1;
+        }
+        .btn-active {
+            background-color: green;
+            color: white !important;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
@@ -123,6 +180,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/form-component" wire:current="active fw-bold" wire:navigate>Component</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/student" wire:current="active fw-bold" wire:navigate>Student</a>
                         </li>
                     @endif
                 </ul>
