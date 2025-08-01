@@ -67,39 +67,46 @@
     <style>
         .stepwizard-step p {
             margin-top: 0px;
-            color:#666;
+            color: #666;
         }
+
         .stepwizard-row {
             display: table-row;
         }
+
         .stepwizard {
             display: table;
             width: 100%;
             position: relative;
         }
+
         .stepwizard-step button[disabled] {
             /*opacity: 1 !important;
             filter: alpha(opacity=100) !important;*/
         }
+
         .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
-            opacity:1 !important;
-            color:#bbb;
+            opacity: 1 !important;
+            color: #bbb;
         }
+
         .stepwizard-row:before {
             top: 14px;
             bottom: 0;
             position: absolute;
-            content:" ";
+            content: " ";
             width: 100%;
             height: 1px;
             background-color: #ccc;
             z-index: 0;
         }
+
         .stepwizard-step {
             display: table-cell;
             text-align: center;
             position: relative;
         }
+
         .btn-circle {
             width: 30px;
             height: 30px;
@@ -111,9 +118,11 @@
             border: 1px solid #a1a1a1;
             background-color: white;
         }
+
         .btn-circle:hover {
             background-color: #a1a1a1;
         }
+
         .btn-active {
             background-color: green;
             color: white !important;
@@ -139,24 +148,54 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/home" wire:current="active fw-bold" wire:navigate>Dashboard</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/product" wire:current="active fw-bold" wire:navigate>Product</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Products
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/product" wire:current="active fw-bold" wire:navigate>Product</a></li>
+                                <li><a class="dropdown-item" href="/products" wire:current="active fw-bold" wire:navigate>Products</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/products" wire:current="active fw-bold" wire:navigate>Products</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Posts
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/post" wire:current="active fw-bold" wire:navigate>Post</a></li>
+                                <li><a class="dropdown-item" href="/posts" wire:current="active fw-bold" wire:navigate>Posts</a></li>
+                            </ul>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                CRUD
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/crud" wire:current="active fw-bold" wire:navigate>One Page CRUD</a></li>
+                                <li><a class="dropdown-item" href="/modal-crud" wire:current="active fw-bold" wire:navigate>Posts</a></li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="/photo-upload" wire:current="active fw-bold" wire:navigate>Photo Upload</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/user" wire:current="active fw-bold" wire:navigate>User</a>
+
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Users
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/user" wire:current="active fw-bold" wire:navigate>User</a></li>
+                                <li><a class="dropdown-item" href="/users" wire:current="active fw-bold" wire:navigate>Users</a></li>
+                                <li><a class="dropdown-item" href="/users-table" wire:current="active fw-bold" wire:navigate>DataTable</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/users" wire:current="active fw-bold" wire:navigate>Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/users-table" wire:current="active fw-bold" wire:navigate>DataTable</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="/address" wire:current="active fw-bold" wire:navigate>Address</a>
                         </li>
@@ -164,13 +203,7 @@
                             <a class="nav-link" href="/invoice" wire:current="active fw-bold" wire:navigate>Invoice</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/post" wire:current="active fw-bold" wire:navigate>Post</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/posts" wire:current="active fw-bold" wire:navigate>Posts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/review" wire:current="active fw-bold" wire:navigate>Review</a>
+                            <a class="nav-link" href="/review" wire:current="active fw-bold" wire:navigate>Review Tab</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/calendar" wire:current="active fw-bold" wire:navigate>Calendar</a>
@@ -183,9 +216,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/student" wire:current="active fw-bold" wire:navigate>Student</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/crud" wire:current="active fw-bold" wire:navigate>CRUD</a>
                         </li>
                     @endif
                 </ul>

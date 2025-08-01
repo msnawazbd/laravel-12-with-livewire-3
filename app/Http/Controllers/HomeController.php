@@ -112,6 +112,11 @@ class HomeController extends Controller
         return view('crud');
     }
 
+    public function modal_crud()
+    {
+        return view('modal_crud');
+    }
+
     public function show($id)
     {
         return User::query()->findOrFail($id);

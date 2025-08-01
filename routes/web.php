@@ -28,3 +28,4 @@ Route::get('/drag-and-drop', [HomeController::class, 'drag_and_drop'])->name('dr
 Route::get('/form-component', [HomeController::class, 'form_component'])->name('formComponent');
 Route::get('/student', [HomeController::class, 'student'])->name('student');
 Route::get('/crud', [HomeController::class, 'crud'])->name('crud');
+Route::get('/modal-crud', [HomeController::class, 'modal_crud'])->name('modalCrud');
